@@ -23,4 +23,23 @@ public class Concierto {
 		Cancion cancion=new Cancion();
 		return cancion;
 	}
+	public ArrayList<Cancion> getListaCanciones() {
+		return listaCanciones;
+	}
+	public void setListaCanciones(ArrayList<Cancion> listaCanciones) {
+		this.listaCanciones = listaCanciones;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getGenero() {
+		return genero;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+	
 }

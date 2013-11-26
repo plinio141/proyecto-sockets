@@ -3,6 +3,7 @@ package gui;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -20,8 +21,16 @@ public class VentanaServer extends JFrame{
 	private ArrayList<Concierto> listaConciertos;
 	private JList<String> jListaConciertos;
 	private Evento evento;
+	private VentanaConcierto vConcierto;
+	private JButton jBSalir;
+	private DefaultListModel<String> modelo;
+	
+	
 	public VentanaServer(int puerto) {
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		modelo=new DefaultListModel<>();
+		
+		setResizable(false);
+		setDefaultCloseOperation(0);
 		setLayout(null);
 		setSize(300, 400);
 		evento=new Evento(this);
@@ -42,10 +51,16 @@ public class VentanaServer extends JFrame{
 		jListaConciertos.setBounds(20, 190, 250, 150);
 		jListaConciertos.setBorder(BorderFactory
 				.createTitledBorder("lista de conciertos"));
+		jListaConciertos.setModel(modelo);
+		
+		jBSalir=new JButton("cerrar server");
+		jBSalir.setBounds(20, 350, 250, 40);
+
 		add(jBNuevoConcierto);
 		add(jListaConciertos);
 		add(jTNombreConcierto);
 		add(jtGeneroConcierto);
+		add(jBSalir);
 	}
 	public void addConcierto(Concierto concierto){
 		if(listaConciertos==null){
@@ -59,6 +74,15 @@ public class VentanaServer extends JFrame{
 	}
 	public Concierto crearConcierto(){
 		Concierto concierto=new Concierto(jTNombreConcierto.getText(),jtGeneroConcierto.getText());
+		vConcierto=new VentanaConcierto(concierto);
+		vConcierto.setVisible(true);
 		return concierto;
+	}
+	/**
+	 * agregar visualmente el concierto
+	 **/
+	public void addVConcierto(Concierto concierto){
+		listaConciertos.add(concierto);
+		modelo.addElement(concierto.getNombre());
 	}
 }

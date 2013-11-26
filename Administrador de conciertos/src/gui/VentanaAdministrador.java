@@ -20,6 +20,7 @@ public class VentanaAdministrador extends JFrame{
 	private JList<String> listaServer;
 	private JButton jBAgregar;
 	private Evento evento;
+	private Server server;
 	/**
 	 * constructor de inicializacion de algunas variables y agregacion de 
 	 * componentes graficos 
@@ -68,6 +69,9 @@ public class VentanaAdministrador extends JFrame{
 		VentanaServer server=new VentanaServer(Integer.valueOf(jTPuerto.getText()));
 		server.setVisible(true);
 		return server;
+	}
+	public void eliminarServer(String name){
+		
 	}
 	public static void main(String[] args) {
 		VentanaAdministrador ventana=new VentanaAdministrador();
