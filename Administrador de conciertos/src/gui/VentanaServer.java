@@ -32,7 +32,7 @@ public class VentanaServer extends JFrame{
 		setResizable(false);
 		setDefaultCloseOperation(0);
 		setLayout(null);
-		setSize(300, 400);
+		setSize(300, 500);
 		evento=new Evento(this);
 		this.puerto=puerto;
 		jTNombreConcierto=new JTextField();
@@ -74,15 +74,12 @@ public class VentanaServer extends JFrame{
 	}
 	public Concierto crearConcierto(){
 		Concierto concierto=new Concierto(jTNombreConcierto.getText(),jtGeneroConcierto.getText());
-		vConcierto=new VentanaConcierto(concierto);
+		addConcierto(concierto);
+		vConcierto=new VentanaConcierto(concierto, this);
 		vConcierto.setVisible(true);
+		modelo.addElement(concierto.getNombre());
+		repaint();
 		return concierto;
 	}
-	/**
-	 * agregar visualmente el concierto
-	 **/
-	public void addVConcierto(Concierto concierto){
-		listaConciertos.add(concierto);
-		modelo.addElement(concierto.getNombre());
-	}
+	
 }

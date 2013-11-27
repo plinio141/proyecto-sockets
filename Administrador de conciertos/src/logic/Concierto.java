@@ -6,6 +6,7 @@ public class Concierto {
 	private ArrayList<Cancion> listaCanciones;
 	private String nombre;
 	private String genero;
+	
 	public Concierto(String nombre,String genero){
 		this.nombre=nombre;
 		this.genero=genero;

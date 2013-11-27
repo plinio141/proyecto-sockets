@@ -22,9 +22,11 @@ public class VentanaConcierto extends JFrame {
 	private JFileChooser jFCRuta;
 	private DefaultListModel<String> modelo;
 	private Evento evento;
+	private VentanaServer vServer;
 	
-	public VentanaConcierto(Concierto concierto) {
+	public VentanaConcierto(Concierto concierto, VentanaServer vServer) {
 		modelo=new DefaultListModel<>();
+		this.vServer=vServer;
 		
 		this.concierto=concierto;
 		this.setLayout(null);
@@ -84,7 +86,6 @@ public class VentanaConcierto extends JFrame {
 	public void addCancion(){
 		Cancion c=new Cancion(jTNombreCancion.getText(), jTRutaCancion.getText(), concierto.getGenero(), Integer.parseInt(jTDuracionCancion.getText()));
 		concierto.addCancion(c);
-		
 		modelo.addElement(c.getNombre());
 		repaint();
 	}

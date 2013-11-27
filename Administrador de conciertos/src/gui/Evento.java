@@ -23,7 +23,7 @@ public class Evento implements ActionListener{
 			vAdministrador.addServer(vAdministrador.crearServer());
 		}
 		if(event.getActionCommand()=="agregar concierto"){
-			vServer.addConcierto(vServer.crearConcierto());
+			vServer.crearConcierto();
 		}
 		if(event.getActionCommand()=="ruta"){
 			vConcierto.buscarRuta();
